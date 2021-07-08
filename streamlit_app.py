@@ -13,11 +13,7 @@ def show():
     # Define initial state.
     if "todos" not in st.session_state:
         st.session_state.todos = [
-            {"description": "Done everything", "done": False},
-            {
-                "description": "Read the [blog post about session state](https://blog.streamlit.io/session-state-for-streamlit/)",
-                "done": False,
-            },
+            {"description": "Done everything!", "done": False},
         ]
 
     # Define callback when text_input changed.
@@ -35,7 +31,7 @@ def show():
         "<style>.main * div.row-widget.stRadio > div{flex-direction:row;}</style>",
         unsafe_allow_html=True,
     )
-    st.text_input("What do you need to do?", on_change=new_todo_changed, key="new_todo")
+    st.text_input("What do you want to do?", on_change=new_todo_changed, key="new_todo")
 
     # Show all TODOs.
     write_todo_list(st.session_state.todos)
