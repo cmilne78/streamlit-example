@@ -13,7 +13,7 @@ def show():
     # Define initial state.
     if "todos" not in st.session_state:
         st.session_state.todos = [
-            {"description": "Play some Tic Tac Toe", "done": True},
+            {"description": "Done everything", "done": False},
             {
                 "description": "Read the [blog post about session state](https://blog.streamlit.io/session-state-for-streamlit/)",
                 "done": False,
