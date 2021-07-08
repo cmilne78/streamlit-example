@@ -10,13 +10,7 @@ def show():
         """
     )
 
-    # Define initial state.
-    if "todos" not in st.session_state:
-        st.session_state.todos = [
-            {"description": "Start your list for today", "done": False},
-        ]
-
-    # Define callback when text_input changed.
+        # Define callback when text_input changed.
     def new_todo_changed():
         if st.session_state.new_todo:
             st.session_state.todos.append(
@@ -25,13 +19,20 @@ def show():
                     "done": False,
                 }
             )
+    # Define initial state.
+    if "todos" not in st.session_state:
+        st.session_state.todos = [
+            {"description": "Done!", "done": False},
+        ]
+
+
 
     # Show widgets to add new TODO.
     st.write(
         "<style>.main * div.row-widget.stRadio > div{flex-direction:row;}</style>",
         unsafe_allow_html=True,
     )
-    st.text_input("What do you need to do?", on_change=new_todo_changed, key="new_todo")
+    st.text_input("What do you want to do?", on_change=new_todo_changed, key="new_todo")
 
     # Show all TODOs.
     write_todo_list(st.session_state.todos)
