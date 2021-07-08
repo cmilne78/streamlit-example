@@ -6,11 +6,23 @@ def show():
         """
         ## ✅ To-do List
         
-        Use this space to create a daily list of things to do. Keep on top of things. 
+        We already added a few TODOs for you 😉 They are stored as a list in 
+        `st.session_state`. Also, the `on_change` callback is used to add new items only
+        when the text input changes.
         """
     )
 
-        # Define callback when text_input changed.
+    # Define initial state.
+    if "todos" not in st.session_state:
+        st.session_state.todos = [
+            {"description": "Play some Tic Tac Toe", "done": True},
+            {
+                "description": "Read the [blog post about session state](https://blog.streamlit.io/session-state-for-streamlit/)",
+                "done": False,
+            },
+        ]
+
+    # Define callback when text_input changed.
     def new_todo_changed():
         if st.session_state.new_todo:
             st.session_state.todos.append(
@@ -19,20 +31,13 @@ def show():
                     "done": False,
                 }
             )
-    # Define initial state.
-    if "todos" not in st.session_state:
-        st.session_state.todos = [
-            {"description": "Done!", "done": False},
-        ]
-
-
 
     # Show widgets to add new TODO.
     st.write(
         "<style>.main * div.row-widget.stRadio > div{flex-direction:row;}</style>",
         unsafe_allow_html=True,
     )
-    st.text_input("What do you want to do?", on_change=new_todo_changed, key="new_todo")
+    st.text_input("What do you need to do?", on_change=new_todo_changed, key="new_todo")
 
     # Show all TODOs.
     write_todo_list(st.session_state.todos)
