@@ -6,20 +6,14 @@ def show():
         """
         ## ✅ To-do List
         
-        We already added a few TODOs for you 😉 They are stored as a list in 
-        `st.session_state`. Also, the `on_change` callback is used to add new items only
-        when the text input changes.
+        Use this space to create a daily list of things to do. Keep on top of things. 
         """
     )
 
     # Define initial state.
     if "todos" not in st.session_state:
         st.session_state.todos = [
-            {"description": "Play some Tic Tac Toe", "done": True},
-            {
-                "description": "Read the [blog post about session state](https://blog.streamlit.io/session-state-for-streamlit/)",
-                "done": False,
-            },
+            {"description": "Start your list for today", "done": False},
         ]
 
     # Define callback when text_input changed.
