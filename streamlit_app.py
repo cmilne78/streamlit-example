@@ -11,7 +11,7 @@ def show():
     )
 
      # Define initial state.
-      if "todos" not in st.session_state:
+     if "todos" not in st.session_state:
         st.session_state.todos = [
             {"description": "Start your list for today", "done": False},
         ]
