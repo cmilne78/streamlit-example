@@ -10,11 +10,11 @@ def show():
         """
     )
 
-    # Define initial state.
-   # if "todos" not in st.session_state:
-    #    st.session_state.todos = [
-     #       {"description": "Start your list for today", "done": False},
-     #   ]
+     Define initial state.
+    if "todos" not in st.session_state:
+        st.session_state.todos = [
+            {"description": "Start your list for today", "done": False},
+        ]
 
     # Define callback when text_input changed.
     def new_todo_changed():
